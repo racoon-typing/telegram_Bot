@@ -4,19 +4,36 @@ const token = '5767402335:AAGrPlY-lDSlUTkwAcL8bM-lmhzAzDX2_GI';
 
 const bot = new TelegramApi(token, {polling: true});
 
-bot.on('message', msg => {
-    const text = msg.text;
-    const chatId = msg.chat.id;
+const chats = {};
 
-    if (text === '/start') {
-        bot.sendMessage(chatId, `https://tlgrm.eu/_/stickers/7e8/aa6/7e8aa67b-ad91-4d61-8f62-301bde115989/256/1.webp`);
-        bot.sendMessage(chatId, `Добро пожаловать в телеграм бот: Даниила С`);
-    }
+bot.setMyCommands([
+    {command: '/start', description:'Начальное приветствие'},
+    {command: '/info', description:'Получить информацию о пользователе '},
 
-    if (text === '/info') {
-        bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name}`); 
-    }
+]);
 
+const start = () => {
+    bot.on('message', async msg => {
+        const text = msg.text;
+        const chatId = msg.chat.id;
+    
+        if (text === '/start') {
+            await bot.sendMessage(chatId, `https://tlgrm.eu/_/stickers/7e8/aa6/7e8aa67b-ad91-4d61-8f62-301bde115989/256/1.webp`);
+            return bot.sendMessage(chatId, `Добро пожаловать в телеграм бот: Даниила С`);
+        }
+    
+        if (text === '/info') {
+            return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name} ${msg.from.last_name}`); 
+        }
 
-    bot.sendMessage(chatId, `Ты написал мне ${text}`);
-});
+        if (text === '/game') {
+            await bot.sendMessage(chatId, `Сейчас я загадаю цифру от 0 до 9, а ты должен ее отгадать`);
+            const randomNumber = Math.floor(Math.random() * 10); 
+
+        }
+    
+        return bot.sendMessage(chatId, 'Я тебя не понимаю, попробуй еще раз!)')
+    });    
+}
+
+start();
