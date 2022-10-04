@@ -4,7 +4,7 @@ const token = '5767402335:AAGrPlY-lDSlUTkwAcL8bM-lmhzAzDX2_GI';
 
 const bot = new TelegramApi(token, {polling: true});
  
-// const chats = {};
+const chats = {};
 
 bot.setMyCommands([
     {command: '/start', description: 'Начальное приветствие'},
