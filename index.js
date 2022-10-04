@@ -10,7 +10,6 @@ bot.setMyCommands([
     {command: '/start', description: 'Начальное приветствие'},
     {command: '/info', description: 'Получить информацию о пользователе '},
     {command: '/game', description: 'Игра угадай цифру'},
-
 ]);
 
 const start = () => {
@@ -19,7 +18,7 @@ const start = () => {
         const chatId = msg.chat.id;
     
         if (text === '/start') {
-            await bot.sendMessage(chatId, `https://tlgrm.eu/_/stickers/7e8/aa6/7e8aa67b-ad91-4d61-8f62-301bde115989/256/1.webp`);
+            await bot.sendSticker(chatId, `https://tlgrm.eu/_/stickers/7e8/aa6/7e8aa67b-ad91-4d61-8f62-301bde115989/256/1.webp`);
             return bot.sendMessage(chatId, `Добро пожаловать в телеграм бот: Даниила С`);
         }
     
