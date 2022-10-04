@@ -6,6 +6,17 @@ const bot = new TelegramApi(token, {polling: true});
  
 const chats = {};
 
+const gameOptions = {
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+            [{text: '1', callback_data: '1'}],
+            [{text: '2', callback_data: '2'}],
+            [{text: '3', callback_data: '3'}],
+            [{text: '4', callback_data: '4'}],
+        ]
+    })
+};
+
 bot.setMyCommands([
     {command: '/start', description: 'Начальное приветствие'},
     {command: '/info', description: 'Получить информацию о пользователе '},
@@ -30,11 +41,19 @@ const start = () => {
             await bot.sendMessage(chatId, `Сейчас я загадаю цифру от 0 до 9, а ты должен ее отгадать`);
             const randomNumber = Math.floor(Math.random() * 10); 
             chats[chatId] = randomNumber;
-            return bot.sendMessage(chatId, 'Отгадывай');
+            return bot.sendMessage(chatId, 'Отгадывай', gameOptions);
         }
     
         return bot.sendMessage(chatId, 'Я тебя не понимаю, попробуй еще раз!)')
-    });    
+    });
+    
+    bot.on('callback_query', msg => {
+        const data = msg.data;
+        const chatId = msg.message.chat.id;
+
+        bot.sendMessage(chatId, `Ты выбрал цифру ${data}`);
+        console.log(msg);
+    });
 }
 
 
