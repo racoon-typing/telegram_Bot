@@ -51,11 +51,10 @@ const start = () => {
         const data = msg.data;
         const chatId = msg.message.chat.id;
         if (data === chats[chatId]) {
-            return bot.sendMessage(chatId, `Поздравляю, ты отгадал цифру ${data}`);
+            return bot.sendMessage(chatId, `Поздравляю, ты отгадал цифру ${chats[chatId]}`);
         } else {
-            return bot.sendMessage(chatId, `К сожалению ты не угадал, бот загадал цифру ${data}`);
+            return bot.sendMessage(chatId, `К сожалению ты не угадал, бот загадал цифру ${chats[chatId]}`);
         }
-        bot.sendMessage(chatId, `Ты выбрал цифру ${data}`);
     });
 }
 
