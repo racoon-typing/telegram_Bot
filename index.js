@@ -9,7 +9,6 @@ const chats = {};
 bot.setMyCommands([
     {command: '/start', description:'Начальное приветствие'},
     {command: '/info', description:'Получить информацию о пользователе '},
-
 ]);
 
 const start = () => {
