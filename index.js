@@ -7,8 +7,10 @@ const bot = new TelegramApi(token, {polling: true});
 const chats = {};
 
 bot.setMyCommands([
-    {command: '/start', description:'Начальное приветствие'},
-    {command: '/info', description:'Получить информацию о пользователе '},
+    {command: '/start', description: 'Начальное приветствие'},
+    {command: '/info', description: 'Получить информацию о пользователе '},
+    {command: '/game', description: 'Игра угадай цифру'},
+
 ]);
 
 const start = () => {
@@ -28,7 +30,8 @@ const start = () => {
         if (text === '/game') {
             await bot.sendMessage(chatId, `Сейчас я загадаю цифру от 0 до 9, а ты должен ее отгадать`);
             const randomNumber = Math.floor(Math.random() * 10); 
-
+            chats[chatId] = randomNumber;
+            return bot.sendMessage(chatId, 'Отгадывай');
         }
     
         return bot.sendMessage(chatId, 'Я тебя не понимаю, попробуй еще раз!)')
