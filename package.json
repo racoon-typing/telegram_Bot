@@ -7,6 +7,10 @@
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/racoon-typing/telegram_Bot"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
