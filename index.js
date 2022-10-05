@@ -1,3 +1,5 @@
+// Пароль к серваку:  4xspjQNWI1Xe
+
 const TelegramApi = require('node-telegram-bot-api');
 const {gameOptions, againOptions} = require('./options');
 const token = '5767402335:AAGrPlY-lDSlUTkwAcL8bM-lmhzAzDX2_GI';
