@@ -1,5 +1,4 @@
-// Пароль к серваку:  4xspjQNWI1Xe
-
+// Пароль к серваку:  JdElY78KQYPr
 
 const TelegramApi = require('node-telegram-bot-api');
 const {gameOptions, againOptions} = require('./options');
