@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/racoon-typing/telegram_Bot"
+    "url": "git://github.com/racoon-typing/telegram_Bot.git"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,10 @@
   "dependencies": {
     "node-telegram-bot-api": "^0.59.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/racoon-typing/telegram_Bot/issues"
+  },
+  "homepage": "https://github.com/racoon-typing/telegram_Bot#readme",
+  "devDependencies": {}
 }
